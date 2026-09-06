@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download.LK - Fast & Modern Video Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg-glow-container">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo">Download<span class="logo-accent">.LK</span></a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li class="nav-item"><a href="#platforms" class="nav-link">Platforms</a></li>
+                <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content fade-in">
+                <span class="badge"><i class="fa-solid fa-bolt"></i> Fast, Free & Secure</span>
+                <h1 class="hero-title">Download Videos <span class="gradient-text">Easily</span></h1>
+                <p class="hero-subtitle">Fast, simple, and easy video downloading experience in high resolution.</p>
+                
+                <div class="downloader-card glass-card">
+                    <form id="download-form" onsubmit="return false;">
+                        <div class="input-group">
+                            <i class="fa-solid fa-link input-icon"></i>
+                            <input type="url" id="video-url" placeholder="Paste your video URL here..." required autocomplete="off">
+                            <button type="button" id="paste-btn" class="btn btn-secondary">
+                                <i class="fa-regular fa-clipboard"></i> Paste
+                            </button>
+                            <button type="submit" id="download-btn" class="btn btn-primary">
+                                <span>Download</span> <i class="fa-solid fa-arrow-down"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="status-container" class="status-container hidden">
+                        <div class="spinner"></div>
+                        <p id="status-text">Analyzing video link...</p>
+                        <div class="progress-bar-wrapper">
+                            <div id="progress-bar" class="progress-bar"></div>
+                        </div>
+                    </div>
+
+                    <div id="result-card" class="result-card hidden">
+                        <div class="result-content">
+                            <div class="thumbnail-wrapper">
+                                <img id="res-thumbnail" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80" alt="Video Thumbnail">
+                                <span id="res-duration" class="duration-badge">04:15</span>
+                            </div>
+                            <div class="video-details">
+                                <h3 id="res-title">Sample High Definition Video Preview</h3>
+                                <p class="platform-tag"><i class="fa-brands fa-youtube"></i> <span id="res-platform">YouTube</span></p>
+                                
+                                <div class="quality-selector">
+                                    <label for="quality-select">Select Quality:</label>
+                                    <select id="quality-select">
+                                        <option value="1080p">1080p (Full HD) - MP4</option>
+                                        <option value="720p">720p (HD) - MP4</option>
+                                        <option value="480p">480p (SD) - MP4</option>
+                                        <option value="mp3">Audio Only - MP3</option>
+                                    </select>
+                                </div>
+                                
+                                <a id="final-download-btn" href="#" download class="btn btn-success">
+                                    <i class="fa-solid fa-file-arrow-down"></i> Save Video to Device
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="disclaimer-text">
+                        <i class="fa-solid fa-circle-info"></i> Please ensure you only download content you have explicit permission or rights to download.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="platforms" class="platforms-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Supported <span class="gradient-text">Platforms</span></h2>
+                    <p>Download content effortlessly across major video hosting services</p>
+                </div>
+                <div class="platforms-grid fade-in">
+                    <div class="platform-card glass-card">
+                        <i class="fa-brands fa-youtube platform-icon youtube"></i>
+                        <h3>YouTube</h3>
+                    </div>
+                    <div class="platform-card glass-card">
+                        <i class="fa-brands fa-facebook platform-icon facebook"></i>
+                        <h3>Facebook</h3>
+                    </div>
+                    <div class="platform-card glass-card">
+                        <i class="fa-brands fa-instagram platform-icon instagram"></i>
+                        <h3>Instagram</h3>
+                    </div>
+                    <div class="platform-card glass-card">
+                        <i class="fa-brands fa-tiktok platform-icon tiktok"></i>
+                        <h3>TikTok</h3>
+                    </div>
+                    <div class="platform-card glass-card">
+                        <i class="fa-brands fa-x-twitter platform-icon twitter"></i>
+                        <h3>X / Twitter</h3>
+                    </div>
+                    <div class="platform-card glass-card">
+                        <i class="fa-brands fa-vimeo-v platform-icon vimeo"></i>
+                        <h3>Vimeo</h3>
+                    </div>
+                </div>
+                <p class="copyright-notice fade-in">
+                    <i class="fa-solid fa-shield-halved"></i> Only download videos you own or have permission to download.
+                </p>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="steps-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>How It <span class="gradient-text">Works</span></h2>
+                    <p>Get your favorite media saved in 3 quick steps</p>
+                </div>
+                <div class="steps-grid fade-in">
+                    <div class="step-card glass-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon"><i class="fa-regular fa-copy"></i></div>
+                        <h3>Copy Link</h3>
+                        <p>Copy the URL of the video you wish to download from any supported platform.</p>
+                    </div>
+                    <div class="step-card glass-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon"><i class="fa-solid fa-paste"></i></div>
+                        <h3>Paste Link</h3>
+                        <p>Paste the copied video link into the input box on Download.LK above.</p>
+                    </div>
+                    <div class="step-card glass-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon"><i class="fa-solid fa-circle-down"></i></div>
+                        <h3>Download</h3>
+                        <p>Choose your preferred resolution or format and save it straight to your device.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Why Choose <span class="gradient-text">Download.LK</span></h2>
+                    <p>Designed for ultimate speed, security, and simplicity</p>
+                </div>
+                <div class="features-grid fade-in">
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Interface</h3>
+                        <p>Ultra-fast client side parsing ensuring zero delay during conversion processing.</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Fully optimized responsive layout tailored for all mobile screens and tablets.</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Modern Design</h3>
+                        <p>Sleek dark violet glassmorphic aesthetics engineered with precision.</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Privacy Focused</h3>
+                        <p>We do not track your downloads or log personal browsing activity.</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Simple to Use</h3>
+                        <p>Clean layout designed to get your files saved with minimum effort.</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Easy API Integration</h3>
+                        <p>Modular JavaScript layout ready to wire into enterprise conversion backends.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+                    <p>Find answers to common questions about Download.LK</p>
+                </div>
+                <div class="accordion fade-in">
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header">
+                            <span>How does Download.LK work?</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Download.LK parses the media link provided, extracts available video stream formats, and generates direct download links for fast, seamless saving.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header">
+                            <span>Is Download.LK free?</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Yes, Download.LK is completely free to use without limits, subscriptions, or hidden fees.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header">
+                            <span>Which platforms are supported?</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>We support major platforms including YouTube, Facebook, Instagram, TikTok, X (Twitter), and Vimeo.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header">
+                            <span>Why isn't my URL working?</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Make sure the video is public and that the link format is correct. Private videos or invalid URL structures cannot be parsed.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header">
+                            <span>Can I download videos on mobile?</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Absolutely! Download.LK is fully responsive and functions smoothly on iOS and Android devices directly inside your browser.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header">
+                            <span>Is downloading copyrighted content allowed?</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>No. You should only download content that you own, that is in the public domain, or for which you have explicit rights and permissions from the copyright holder.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">Download<span class="logo-accent">.LK</span></a>
+                <p>Simple. Fast. Modern.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Download.LK. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>/* style.css */
+:root {
+    --bg-dark: #0b0614;
+    --primary-violet: #8b5cf6;
+    --primary-glow: #a855f7;
+    --accent-pink: #ec4899;
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --glass-bg: rgba(23, 15, 38, 0.55);
+    --glass-border: rgba(168, 85, 247, 0.2);
+    --glass-hover-border: rgba(168, 85, 247, 0.5);
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Background Animated Orbs */
+.bg-glow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+    animation: floatOrb 12s infinite alternate ease-in-out;
+}
+
+.orb-1 {
+    width: 350px;
+    height: 350px;
+    background: var(--primary-violet);
+    top: -50px;
+    left: -50px;
+}
+
+.orb-2 {
+    width: 450px;
+    height: 450px;
+    background: var(--accent-pink);
+    bottom: -100px;
+    right: -100px;
+    animation-delay: -4s;
+}
+
+.orb-3 {
+    width: 300px;
+    height: 300px;
+    background: #3b82f6;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -8s;
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(60px, 40px) scale(1.15); }
+}
+
+/* Glassmorphism Styling */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+    border-color: var(--glass-hover-border);
+    box-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.25);
+}
+
+/* Typography Helpers */
+.gradient-text {
+    background: linear-gradient(135deg, #c084fc, #e879f9, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-violet), var(--primary-glow));
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn-success:hover {
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Header Navbar */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(11, 6, 20, 0.75);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.logo-accent {
+    color: var(--primary-glow);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-main);
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-main);
+    border-radius: 3px;
+    transition: var(--transition-smooth);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 100px 20px 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.badge {
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid var(--glass-border);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    color: #c084fc;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+/* Downloader Card */
+.downloader-card {
+    padding: 35px;
+    text-align: left;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 6px 8px 6px 16px;
+    gap: 10px;
+}
+
+.input-group:focus-within {
+    border-color: var(--primary-glow);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+.input-icon {
+    color: var(--text-muted);
+}
+
+.input-group input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 0;
+}
+
+/* Status & Loading */
+.status-container {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--primary-glow);
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.progress-bar-wrapper {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-violet), var(--accent-pink));
+    transition: width 0.2s ease;
+}
+
+/* Result Card */
+.result-card {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.result-content {
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnail-wrapper {
+    position: relative;
+    width: 200px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.thumbnail-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.duration-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.video-details {
+    flex: 1;
+}
+
+.video-details h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.platform-tag {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.quality-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+}
+
+.quality-selector select {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    outline: none;
+    cursor: pointer;
+}
+
+.disclaimer-text {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* Platforms Section */
+.platforms-section {
+    padding: 80px 0;
+}
+
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.platform-card {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.platform-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.youtube { color: #ff0000; }
+.facebook { color: #1877f2; }
+.instagram { color: #e4405f; }
+.tiktok { color: #25d366; }
+.twitter { color: #ffffff; }
+.vimeo { color: #1ab7ea; }
+
+.copyright-notice {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Steps Section */
+.steps-section {
+    padding: 80px 0;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.step-card {
+    padding: 35px;
+    position: relative;
+}
+
+.step-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.08);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.step-icon {
+    font-size: 2rem;
+    color: var(--primary-glow);
+    margin-bottom: 20px;
+}
+
+.step-card h3 {
+    margin-bottom: 10px;
+}
+
+.step-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Features Section */
+.features-section {
+    padding: 80px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    padding: 30px;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 80px 0 120px;
+}
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.accordion-item {
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 20px 25px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.accordion-icon {
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 25px;
+    transition: all 0.3s ease;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 200px;
+    padding: 0 25px 20px 25px;
+}
+
+/* Footer */
+.footer {
+    background: rgba(5, 2, 10, 0.9);
+    border-top: 1px solid var(--glass-border);
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-brand p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+}
+
+.footer-links a:hover {
+    color: var(--primary-glow);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: rgba(11, 6, 20, 0.95);
+        backdrop-filter: blur(20px);
+        width: 100%;
+        text-align: center;
+        padding: 30px 0;
+        transition: 0.3s ease;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    .input-group input {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-md);
+        padding: 14px 16px;
+    }
+
+    .input-group button {
+        width: 100%;
+    }
+
+    .input-icon {
+        display: none;
+    }
+
+    .result-content {
+        flex-direction: column;
+    }
+
+    .thumbnail-wrapper {
+        width: 100%;
+        height: 180px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}// script.js
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mobile Navigation Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+
+    // 2. Clipboard Paste Button Functionality
+    const pasteBtn = document.getElementById('paste-btn');
+    const videoUrlInput = document.getElementById('video-url');
+
+    if (pasteBtn && videoUrlInput) {
+        pasteBtn.addEventListener('click', async () => {
+            try {
+                const text = await navigator.clipboard.readText();
+                videoUrlInput.value = text;
+            } catch (err) {
+                alert('Failed to read clipboard contents. Please paste manually.');
+            }
+        });
+    }
+
+    // 3. Downloader Engine & UI Interaction
+    const downloadForm = document.getElementById('download-form');
+    const statusContainer = document.getElementById('status-container');
+    const statusText = document.getElementById('status-text');
+    const progressBar = document.getElementById('progress-bar');
+    const resultCard = document.getElementById('result-card');
+
+    if (downloadForm) {
+        downloadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const url = videoUrlInput.value.trim();
+
+            if (!isValidUrl(url)) {
+                alert('Please enter a valid HTTP or HTTPS video URL.');
+                return;
+            }
+
+            // Reset UI states
+            resultCard.classList.add('hidden');
+            statusContainer.classList.remove('hidden');
+            progressBar.style.width = '0%';
+            statusText.textContent = 'Parsing video source URL...';
+
+            // Simulate parsing progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 20;
+                progressBar.style.width = `${progress}%`;
+
+                if (progress === 40) {
+                    statusText.textContent = 'Extracting video resolutions...';
+                } else if (progress === 80) {
+                    statusText.textContent = 'Preparing video streams...';
+                } else if (progress >= 100) {
+                    clearInterval(interval);
+                    statusContainer.classList.add('hidden');
+                    
+                    // Trigger backend API call (simulated)
+                    processVideoData(url);
+                }
+            }, 300);
+        });
+    }
+
+    // Basic URL validation checker
+    function isValidUrl(string) {
+        try {
+            const url = new URL(string);
+            return url.protocol === "http:" || url.protocol === "https:";
+        } catch (_) {
+            return false;
+        }
+    }
+
+    /* ===================================================================
+    BACKEND / API INTEGRATION PLACEHOLDER
+    ===================================================================
+    Connect real video extraction API here (e.g., yt-dlp wrapper or custom backend API).
+    */
+    function processVideoData(url) {
+        // Detect platform context from string
+        let platform = 'Unknown Platform';
+        let thumbnail = 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80';
+
+        if (url.includes('youtube.com') || url.includes('youtu.be')) {
+            platform = 'YouTube';
+            thumbnail = 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&q=80';
+        } else if (url.includes('facebook.com')) {
+            platform = 'Facebook';
+            thumbnail = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&q=80';
+        } else if (url.includes('instagram.com')) {
+            platform = 'Instagram';
+            thumbnail = 'https://images.unsplash.com/photo-1611262588024-d12430b98920?w=500&q=80';
+        } else if (url.includes('tiktok.com')) {
+            platform = 'TikTok';
+        } else if (url.includes('vimeo.com')) {
+            platform = 'Vimeo';
+        }
+
+        // Render extracted mock details
+        document.getElementById('res-thumbnail').src = thumbnail;
+        document.getElementById('res-title').textContent = `Media Content parsed from ${platform}`;
+        document.getElementById('res-platform').textContent = platform;
+        
+        // Wire dummy file download link
+        const downloadBtn = document.getElementById('final-download-btn');
+        downloadBtn.href = "#"; 
+        downloadBtn.onclick = (e) => {
+            e.preventDefault();
+            alert("Frontend Demo: Connected real API downloader will start file transfer now!");
+        };
+
+        resultCard.classList.remove('hidden');
+    }
+
+    // 4. FAQ Accordion Mechanism
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const accordionItem = header.parentElement;
+            const isActive = accordionItem.classList.contains('active');
+
+            // Close all items
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Toggle selected item
+            if (!isActive) {
+                accordionItem.classList.add('active');
+            }
+        });
+    });
+
+    // 5. Scroll Animations (Intersection Observer)
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(element => {
+        fadeObserver.observe(element);
+    });
+});
